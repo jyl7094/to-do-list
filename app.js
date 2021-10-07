@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 const date = require(__dirname + "/date.js");
 
 app.set("view engine", "ejs");
@@ -33,6 +33,6 @@ app.post("/", (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server started on port: ${port}`);
+app.listen(port || 3000, () => {
+    console.log(`Server started on port: ${port || 3000}`);
 });
